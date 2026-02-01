@@ -132,15 +132,12 @@ public class Modul1 {
 
         System.out.println("--- Начало работы ---");
 
-        // 1. Создаем книги
         Book b1 = new Book("Java. Эффективное программирование", "Дж. Блох", "978-0134685991", 2);
         Book b2 = new Book("Чистый код", "Р. Мартин", "978-5446100355", 1);
 
-        // 2. Добавляем в библиотеку
         myLibrary.addBook(b1);
         myLibrary.addBook(b2);
 
-        // 3. Регистрируем читателей
         Reader r1 = new Reader("Иван Петров", "R001");
         Reader r2 = new Reader("Анна Сидорова", "R002");
         myLibrary.registerReader(r1);
@@ -148,24 +145,20 @@ public class Modul1 {
 
         System.out.println("\n--- Процесс выдачи ---");
 
-        // Иван берет книгу (успешно)
         myLibrary.lendBook("978-5446100355", "R001");
 
-        // Анна пытается взять ту же книгу (она была всего одна, должна быть ошибка наличия)
         myLibrary.lendBook("978-5446100355", "R002");
 
-        // Анна берет другую книгу
         myLibrary.lendBook("978-0134685991", "R002");
 
         System.out.println("\n--- Процесс возврата ---");
 
-        // Иван возвращает книгу
         myLibrary.returnBook("978-5446100355");
 
-        // Теперь Анна может её взять
         myLibrary.lendBook("978-5446100355", "R002");
 
         System.out.println("\n--- Удаление ---");
         myLibrary.removeBook("978-0134685991");
     }
+
 }
